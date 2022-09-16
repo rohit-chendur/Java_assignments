@@ -117,14 +117,13 @@ Querying documents
 Aggregate Exercise
 
 1. Count the number of cuisines from each country
---> db.books.aggregate( [
-	{ $group : { _id : "$country", count:{$sum:1} } }
-	] )
+--> db.restaurants.aggregate([{$group : {_id : "$cuisine", count:{$sum:1}}}])
 
 2. Find the average score of every cuisines
---> 
+--> db.restaurants.aggregate([{ $group: { _id: "$cuisine", avgCityPop: { $avg: "$pop" }}}])
 
 
 MapReduce Exercise
 
 1. Count the number of cuisines from each country
+--> 
